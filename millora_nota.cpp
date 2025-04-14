@@ -23,7 +23,7 @@ void loop() {
 void ledON (void * pvParameters) {
     for(;;) {
         if (xSemaphoreTake(semafor, portMAX_DELAY)) {  // Agafem el semàfor
-            Serial.println("Ejecutando tarea: LED ON");
+            Serial.println("Executant tasca: LED ON");
             digitalWrite(LED, HIGH); // Encén el LED
             vTaskDelay(100 / portTICK_PERIOD_MS); // Espera sense bloquejar altres tasques
             xSemaphoreGive(semafor);  // Allibera el semàfor
@@ -35,7 +35,7 @@ void ledON (void * pvParameters) {
 void ledOFF (void * pvParameters) {
     for(;;) {
         if (xSemaphoreTake(semafor, portMAX_DELAY)) {  // Agafem el semàfor
-            Serial.println("Ejecutando tarea: LED OFF");
+            Serial.println("Executant tasca: LED OFF");
             digitalWrite(LED, LOW); // Apaga el LED
             vTaskDelay(100 / portTICK_PERIOD_MS); // Espera sense bloquejar altres tasques
             xSemaphoreGive(semafor);  // Allibera el semàfor
